@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>AlgebraHelper</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/assets/img/logotransparent.png" type="image/x-icon">
+    <body scroll="no" style="overflow: hidden">
+    
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LDZFF61JD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LDZFF61JD');
+</script>
+    </script>
+
+    <div style="width:100%;height:100%;max-width:100%">
+        <div id="game"></div>
+    </div>
+    <script type="text/javascript">
+        EJS_player = '#game';
+        EJS_gameUrl = '/assets/lib/emulator/roms/marioparty.gba'; // Url to Game rom
+        EJS_core = 'gba';
+        EJS_pathtodata = '/assets/lib/emulator/'; //path to all of the wasm and js files. MUST all be in the same directory!!
+        EJS_startOnLoaded = true;
+    </script>
+    <script src="/assets/lib/emulator/loader.js"></script>
+
+    </body>
+</html>

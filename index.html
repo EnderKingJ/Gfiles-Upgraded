@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>AlgebraHelper</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AlgebraHelper">
+    <script src="/assets/lib/fuse/fuse.js"></script>
+    <script src="/assets/lib/include/navbar.js"></script>
+    <link rel="stylesheet" href="/assets/lib/include/navbar.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/assets/img/logotransparent.png" type="image/x-icon">
+    <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+    .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+    .fa-anchor,.fa-coffee {font-size:200px}
+    .footer-distributed{background-color: #000000;box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);box-sizing: border-box;width: 100%;text-align: left;font: normal 16px sans-serif;padding: 45px 50px;margin-top: 80px;}
+    .footer-distributed .footer-left p{color:  #8f9296;font-size: 14px;margin: 0;}
+    .footer-distributed p.footer-links{font-size:18px;font-weight: bold;color:  #ffffff;margin: 0 0 10px;padding: 0;}
+    .footer-distributed p.footer-links a{display:inline-block;line-height: 1.8;text-decoration: none;color:  inherit;}
+    .footer-distributed .footer-right{float: right;margin-top: 6px;max-width: 180px;}
+    .footer-distributed .footer-right a{display: inline-block;width: 35px;height: 35px;background-color:  #33383b;border-radius: 2px;font-size: 20px;color: #ffffff;text-align: center;line-height: 35px;margin-left: 3px;}
+    </style>
+    <style>
+.tab {
+  overflow: hidden;
+  background-color: #1a1a1a;
+  text-align: center;
+}
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  text-align: center;
+}
+.tab button:hover {
+  color: #000;
+  background-color: #ffffff;
+  text-align: center;
+}
+.tab button.active {
+  color: #000;
+  background-color: #ffffff;
+  text-align: center;
+}
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+  text-align: center;
+}
+.content {
+  text-align: center;
+}
+.search {
+    background: none;
+    font-family: inherit;
+    padding: 0px 17px;
+    height: 48px;
+    border: 1px solid rgb(255, 255, 255, .2);
+    color: var(--text-color);
+    border-radius: 3px;
+    outline: none;
+    width: 350px;
+    margin-top: 5px;
+    border-radius: 50px;
+    color: #FFF;
+}
+
+.search:focus {
+    border: 1px solid rgba(253, 253, 253, 0.514);
+    border-radius: 6px;
+    animation: fadeInAnimation ease-in-out 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+    </style>
+    <body>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LDZFF61JD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LDZFF61JD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2417935702588836"
+    crossorigin="anonymous"></script>
+      <br></br>
+      <br></br>
+<!-- Navbar -->
+    <div id="navbar">
+    </div>
+    <div class="content">
+<h1>Games</h1>
+
+<div class="tab">
+  <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'ALL')">All</button>
+  <button class="tablinks" onclick="openTab(event, 'HTML5')">Web Games</button>
+  <button class="tablinks" onclick="openTab(event, 'FLASH')">Flash Games</button>
+  <button class="tablinks" onclick="openTab(event, 'EMULATED')">Retro Games</button>
+  <!--<button class="tablinks" onclick="openTab(event, 'SEARCH')">Search Games</button>-->
+</div>
+
+<div id="ALL" class="tabcontent">
+  <div class="all-projects projects" id="projects-wrapper">
+  </div>
+</div>
+
+<div id="HTML5" class="tabcontent">
+  <div class="html-projects projects" id="projects-wrapper">
+  </div>
+</div>
+
+<div id="FLASH" class="tabcontent">
+  <div class="flash-projects projects" id="projects-wrapper">
+  </div>
+</div>
+
+<div id="EMULATED" class="tabcontent">
+  <div class="emulator-projects projects" id="projects-wrapper">
+  </div>
+</div>
+<div id="SEARCH" class="tabcontent">
+  <input class="search" placeholder="Search the games!">
+  <div class="search-projects projects" id="projects-wrapper">
+  </div>
+</div>
+</div>
+<footer class="footer-distributed">
+
+  <div class="footer-right">
+
+    <a href="https://discord.gg/3zR2SzVz6W"><i class="fa-brands fa-discord"></i></a>
+    <a href="https://github.com/CraftedVortex/AlgebraHelper-old"><i class="fa fa-github"></i></a>
+
+  </div>
+
+  <div class="footer-left">
+
+    <p class="footer-links">
+      <a href="/">Home</a>
+      ·
+      <a href="../games/">Games</a>
+      ·
+      <a href="../sites/">Sites</a>
+      ·
+      <a href="../chat/">Chat</a>
+      ·
+      <a href="../about/">About</a>
+      ·
+      <a href="../about/privacypolicy/">Privacy Policy</a>
+      ·
+      <a href="../about/tos/">Terms of Service</a>
+    </p>
+
+    <p>AlgebraHelper &copy; 2022</p>
+  </div>
+
+</footer>
+
+<script src="https://kit.fontawesome.com/b53d10e9df.js" crossorigin="anonymous"></script>
+<script>
+  document.getElementById("defaultOpen").click();
+  function openTab(evt, tabName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+function isHTML5(game) {
+  return game.type==="html5"
+}
+function isFLASH(game) {
+  return game.type==="flash"
+}
+function isEMULATOR(game) {
+  return game.type==="emulator"
+}
+function loadSearch(el){
+  //console.log("e")
+  fetch("./games.json")
+    .then(response => {return response.json()})
+    .then((games)=>{
+      const options = {
+        keys: [
+          "name",
+          "id"
+        ]
+      };
+      
+      const fuse = new Fuse(games, options);
+      
+      // Change the pattern
+      const pattern = el.value;
+      //console.log(pattern)
+      const filtered = fuse.search(pattern)
+      //console.log(filtered)
+      let searchDiv = document.getElementsByClassName("search-projects")[0]
+      searchDiv.innerHTML="";
+        filtered.forEach((game)=>{
+          let egame = game.item
+            let aElement = document.createElement("a");
+            aElement.href="/games/"+egame.type+"/"+egame.id+"/";
+            aElement.classList = "project project-directory";
+            aElement.setAttribute("aria-expanded", false);
+            searchDiv.appendChild(aElement);
+            let imgElement = document.createElement("img");
+            imgElement.src = "/assets/img/"+egame.iconURL.split("/")[5];
+            imgElement.classList = "thumbnail";
+            aElement.appendChild(imgElement);
+            let nameElement = document.createElement("span");
+            nameElement.classList = "title";
+            nameElement.innerText = egame.name;
+            aElement.appendChild(nameElement);
+            let openDirectly = document.createElement("span");
+            openDirectly.classList = "open-directly";
+            aElement.appendChild(openDirectly);
+        })
+    });
+        
+  
+}
+function loadHtml() {
+    let htmlDiv = document.getElementsByClassName("html-projects")[0]
+        html5games.forEach((game)=>{
+            let aElement = document.createElement("a");
+            aElement.href="/games/"+game.type+"/"+game.id+"/";
+            aElement.classList = "project project-directory";
+            aElement.setAttribute("aria-expanded", false);
+            htmlDiv.appendChild(aElement);
+            let imgElement = document.createElement("img");
+            imgElement.src = "/assets/img/"+game.iconURL.split("/")[5];
+            imgElement.classList = "thumbnail";
+            aElement.appendChild(imgElement);
+            let nameElement = document.createElement("span");
+            nameElement.classList = "title";
+            nameElement.innerText = game.name;
+            aElement.appendChild(nameElement);
+            let openDirectly = document.createElement("span");
+            openDirectly.classList = "open-directly";
+            aElement.appendChild(openDirectly);
+        })
+}
+function loadFlash() {
+    let flashDiv = document.getElementsByClassName("flash-projects")[0]
+        flashgames.forEach((game)=>{
+            let aElement = document.createElement("a");
+            aElement.href="/games/"+game.type+"/"+game.id+"/";
+            aElement.classList = "project project-directory";
+            aElement.setAttribute("aria-expanded", false);
+            flashDiv.appendChild(aElement);
+            let imgElement = document.createElement("img");
+            imgElement.src = "/assets/img/"+game.iconURL.split("/")[5];
+            imgElement.classList = "thumbnail";
+            aElement.appendChild(imgElement);
+            let nameElement = document.createElement("span");
+            nameElement.classList = "title";
+            nameElement.innerText = game.name;
+            aElement.appendChild(nameElement);
+            let openDirectly = document.createElement("span");
+            openDirectly.classList = "open-directly";
+            aElement.appendChild(openDirectly);
+        })
+}
+function loadEmulator() {
+    let emulatorDiv = document.getElementsByClassName("emulator-projects")[0]
+        emulatorgames.forEach((game)=>{
+            let aElement = document.createElement("a");
+            aElement.href="/games/"+game.type+"/"+game.id+"/";
+            aElement.classList = "project project-directory";
+            aElement.setAttribute("aria-expanded", false);
+            emulatorDiv.appendChild(aElement);
+            let imgElement = document.createElement("img");
+            imgElement.src = "/assets/img/"+game.iconURL.split("/")[5];
+            imgElement.classList = "thumbnail";
+            aElement.appendChild(imgElement);
+            let nameElement = document.createElement("span");
+            nameElement.classList = "title";
+            nameElement.innerText = game.name;
+            aElement.appendChild(nameElement);
+            let openDirectly = document.createElement("span");
+            openDirectly.classList = "open-directly";
+            aElement.appendChild(openDirectly);
+        })
+    
+}
+function loadAll() {
+    let allDiv = document.getElementsByClassName("all-projects")[0]
+        games.forEach((game)=>{
+            let aElement = document.createElement("a");
+            aElement.href="/games/"+game.type+"/"+game.id+"/";
+            aElement.classList = "project project-directory";
+            aElement.setAttribute("aria-expanded", false);
+            allDiv.appendChild(aElement);
+            let imgElement = document.createElement("img");
+            imgElement.src = "/assets/img/"+game.iconURL.split("/")[5];
+            imgElement.classList = "thumbnail";
+            aElement.appendChild(imgElement);
+            let nameElement = document.createElement("span");
+            nameElement.classList = "title";
+            nameElement.innerText = game.name;
+            aElement.appendChild(nameElement);
+            let openDirectly = document.createElement("span");
+            openDirectly.classList = "open-directly";
+            aElement.appendChild(openDirectly);
+        })
+}
+window.addEventListener("load",(e)=>{
+    games = []
+    html5games = []
+    flashgames = []
+    emulatorgames = []
+    fetch("./games.json")
+    .then(response => {
+        return response.json();
+    })
+    .then(data => games=data).then(()=>{
+        //console.log(games)
+        html5games = games.filter(isHTML5)
+        flashgames = games.filter(isFLASH)
+        emulatorgames = games.filter(isEMULATOR)
+    }).then(()=>{
+        let allDiv = document.getElementsByClassName("all-projects")[0]
+        games.forEach((game)=>{
+            let aElement = document.createElement("a");
+            aElement.href="/games/"+game.type+"/"+game.id+"/";
+            aElement.classList = "project project-directory";
+            aElement.setAttribute("aria-expanded", false);
+            allDiv.appendChild(aElement);
+            let imgElement = document.createElement("img");
+            imgElement.src = "/assets/img/"+game.iconURL.split("/")[5];
+            imgElement.classList = "thumbnail";
+            aElement.appendChild(imgElement);
+            let nameElement = document.createElement("span");
+            nameElement.classList = "title";
+            nameElement.innerText = game.name;
+            aElement.appendChild(nameElement);
+            let openDirectly = document.createElement("span");
+            openDirectly.classList = "open-directly";
+            aElement.appendChild(openDirectly);
+        })
+        loadFlash();
+        loadEmulator();
+        loadHtml();
+        loadSearch(document.getElementsByClassName("search")[0]);
+        document.getElementsByClassName("search")[0].addEventListener("keypress",(e)=>{
+          //console.log(e)
+          loadSearch(e.target)
+        })
+    })
+});
+</script>
+</body>
+</html>
